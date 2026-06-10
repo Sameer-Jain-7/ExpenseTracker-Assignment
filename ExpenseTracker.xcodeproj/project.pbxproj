@@ -6,20 +6,68 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		A9072B2E2FDA2488004615AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A907299C2FD9C1C6004615AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A90729A32FD9C1C6004615AD;
+			remoteInfo = ExpenseTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A90729A42FD9C1C6004615AD /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9072B2A2FDA2488004615AD /* ExpenseTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenseTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A9072B332FDA248F004615AD /* Exceptions for "ExpenseTracker" folder in "ExpenseTracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests/AnalyticsViewModelTests.swift,
+				Tests/ExpenseViewModelTests.swift,
+				Tests/MockExpenseRepository.swift,
+			);
+			target = A90729A32FD9C1C6004615AD /* ExpenseTracker */;
+		};
+		A9072B352FDA2492004615AD /* Exceptions for "ExpenseTracker" folder in "ExpenseTrackerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests/AnalyticsViewModelTests.swift,
+				Tests/ExpenseViewModelTests.swift,
+				Tests/MockExpenseRepository.swift,
+			);
+			target = A9072B292FDA2488004615AD /* ExpenseTrackerTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A90729A62FD9C1C6004615AD /* ExpenseTracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A9072B332FDA248F004615AD /* Exceptions for "ExpenseTracker" folder in "ExpenseTracker" target */,
+				A9072B352FDA2492004615AD /* Exceptions for "ExpenseTracker" folder in "ExpenseTrackerTests" target */,
+			);
 			path = ExpenseTracker;
+			sourceTree = "<group>";
+		};
+		A9072B2B2FDA2488004615AD /* ExpenseTrackerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ExpenseTrackerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A90729A12FD9C1C6004615AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9072B272FDA2488004615AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				A90729A62FD9C1C6004615AD /* ExpenseTracker */,
+				A9072B2B2FDA2488004615AD /* ExpenseTrackerTests */,
 				A90729A52FD9C1C6004615AD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				A90729A42FD9C1C6004615AD /* ExpenseTracker.app */,
+				A9072B2A2FDA2488004615AD /* ExpenseTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +120,29 @@
 			productReference = A90729A42FD9C1C6004615AD /* ExpenseTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A9072B292FDA2488004615AD /* ExpenseTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9072B302FDA2488004615AD /* Build configuration list for PBXNativeTarget "ExpenseTrackerTests" */;
+			buildPhases = (
+				A9072B262FDA2488004615AD /* Sources */,
+				A9072B272FDA2488004615AD /* Frameworks */,
+				A9072B282FDA2488004615AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9072B2F2FDA2488004615AD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9072B2B2FDA2488004615AD /* ExpenseTrackerTests */,
+			);
+			name = ExpenseTrackerTests;
+			packageProductDependencies = (
+			);
+			productName = ExpenseTrackerTests;
+			productReference = A9072B2A2FDA2488004615AD /* ExpenseTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +155,10 @@
 				TargetAttributes = {
 					A90729A32FD9C1C6004615AD = {
 						CreatedOnToolsVersion = 26.2;
+					};
+					A9072B292FDA2488004615AD = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = A90729A32FD9C1C6004615AD;
 					};
 				};
 			};
@@ -100,12 +177,20 @@
 			projectRoot = "";
 			targets = (
 				A90729A32FD9C1C6004615AD /* ExpenseTracker */,
+				A9072B292FDA2488004615AD /* ExpenseTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A90729A22FD9C1C6004615AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9072B282FDA2488004615AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +207,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9072B262FDA2488004615AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9072B2F2FDA2488004615AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A90729A32FD9C1C6004615AD /* ExpenseTracker */;
+			targetProxy = A9072B2E2FDA2488004615AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A90729AD2FD9C1C7004615AD /* Debug */ = {
@@ -310,6 +410,48 @@
 			};
 			name = Release;
 		};
+		A9072B312FDA2488004615AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RKSR99VH49;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sameer.ExpenseTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpenseTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpenseTracker";
+			};
+			name = Debug;
+		};
+		A9072B322FDA2488004615AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RKSR99VH49;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sameer.ExpenseTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpenseTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpenseTracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +469,15 @@
 			buildConfigurations = (
 				A90729B02FD9C1C7004615AD /* Debug */,
 				A90729B12FD9C1C7004615AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9072B302FDA2488004615AD /* Build configuration list for PBXNativeTarget "ExpenseTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9072B312FDA2488004615AD /* Debug */,
+				A9072B322FDA2488004615AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
