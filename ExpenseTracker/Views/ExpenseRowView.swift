@@ -10,18 +10,29 @@ import SwiftUI
 struct ExpenseRowView: View {
 
     let expense: Expense
+
     var body: some View {
+
         HStack {
-            VStack(alignment: .leading) {
+
+            VStack(alignment: .leading, spacing: 4) {
+
                 Text(expense.title)
                     .font(.headline)
-                Text(expense.category.title)
-                    .font(.caption)
+
+                Label(
+                    expense.category.title,
+                    systemImage: expense.category.icon
+                )
+                .font(.caption)
+                .foregroundColor(.secondary)
             }
+
             Spacer()
+
             Text("₹\(expense.amount, specifier: "%.2f")")
+                .fontWeight(.semibold)
                 .foregroundColor(.red)
-                .bold()
         }
         .padding(.vertical, 8)
     }
