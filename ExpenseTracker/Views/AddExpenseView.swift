@@ -18,6 +18,7 @@ struct AddExpenseView: View {
     @State private var title = ""
     @State private var amount = ""
     @State private var category: ExpenseCategory = .food
+    @State private var expenseDate = Date()
 
     var body: some View {
         Form {
@@ -56,6 +57,20 @@ struct AddExpenseView: View {
                     }
                 }
             }
+            Section("Date & Time") {
+
+                DatePicker(
+                    "Expense Date",
+                    selection: $expenseDate,
+                    displayedComponents: [.date]
+                )
+
+                DatePicker(
+                    "Expense Time",
+                    selection: $expenseDate,
+                    displayedComponents: [.hourAndMinute]
+                )
+            }
 
             Button {
 
@@ -65,7 +80,8 @@ struct AddExpenseView: View {
                 viewModel.addExpense(
                     title: title,
                     amount: value,
-                    category: category
+                    category: category,
+                    date: expenseDate
                 )
 
                 dismiss()

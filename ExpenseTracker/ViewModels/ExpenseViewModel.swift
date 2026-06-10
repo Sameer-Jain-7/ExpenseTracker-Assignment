@@ -46,17 +46,22 @@ final class ExpenseViewModel: ObservableObject {
 
     func loadExpenses() {
         expenses = repository.fetchExpenses()
+            .sorted {
+                $0.date > $1.date
+            }
     }
 
     func addExpense(
         title: String,
         amount: Double,
-        category: ExpenseCategory
+        category: ExpenseCategory,
+        date: Date
     ) {
         let expense = Expense(
             title: title,
             amount: amount,
-            category: category
+            category: category,
+            date: date
         )
         repository.save(expense: expense)
         loadExpenses()
