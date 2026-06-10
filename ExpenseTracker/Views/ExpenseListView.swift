@@ -15,23 +15,50 @@ struct ExpenseListView: View {
     private var showAddScreen = false
 
     var body: some View {
+        
         NavigationStack {
-            List {
-                Section {
-                    EmptyView()
-                } header: {
+            ScrollView(.horizontal, showsIndicators: false) {
+
+                HStack(spacing: 12) {
+
+                    CategoryFilterView(
+                        category: nil,
+                        isSelected: viewModel.selectedCategory == nil
+                    ) {
+
+                        viewModel.selectedCategory = nil
+                    }
+
+                    ForEach(ExpenseCategory.allCases) { category in
+
+                        CategoryFilterView(
+                            category: category,
+                            isSelected: viewModel.selectedCategory == category
+                        ) {
+
+                            viewModel.selectedCategory = category
+                        }
+                    }
+                }
+                .padding(.horizontal)
+            }
+            ScrollView {
+
+                VStack(spacing: 16) {
+
                     SummaryCardView(
                         total: viewModel.totalExpense
                     )
-                    .listRowInsets(EdgeInsets())
-                }
 
-                ForEach(viewModel.expenses) {
-                    ExpenseRowView(expense: $0)
+                    LazyVStack(spacing: 12) {
+
+                        ForEach(viewModel.filteredExpenses) {
+                            ExpenseRowView(expense: $0)
+                        }
+                    }
                 }
-                .onDelete(perform: viewModel.deleteExpense)
+                .padding()
             }
-            .listStyle(.plain)
             .padding()
             .navigationTitle("Expenses")
             .toolbar {
