@@ -15,6 +15,21 @@ final class ExpenseViewModel: ObservableObject {
     @Published var expenses: [Expense] = []
     @Published var selectedCategory: ExpenseCategory? = nil
     private let repository: ExpenseRepository
+    @Published var selectedMonth: Int? = nil
+    @Published var selectedYear: Int =
+        Calendar.current.component(.year, from: Date())
+    // Only Available years shown
+    var availableYears: [Int] {
+        let years = Set(
+            expenses.map {
+                Calendar.current.component(
+                    .year,
+                    from: $0.date
+                )
+            }
+        )
+        return years.sorted(by: >)
+    }
 
     init(
         repository: ExpenseRepository = LocalExpenseRepository()
@@ -36,11 +51,40 @@ final class ExpenseViewModel: ObservableObject {
     }
     
     var filteredExpenses: [Expense] {
-        guard let selectedCategory else {
-            return expenses
-        }
-        return expenses.filter {
-            $0.category == selectedCategory
+
+        expenses.filter { expense in
+
+            let categoryMatch =
+                selectedCategory == nil ||
+                expense.category == selectedCategory
+
+            let monthMatch: Bool
+
+            if let selectedMonth {
+
+                let month = Calendar.current.component(
+                    .month,
+                    from: expense.date
+                )
+
+                monthMatch = month == selectedMonth
+
+            } else {
+
+                monthMatch = true
+            }
+
+            let expenseYear = Calendar.current.component(
+                .year,
+                from: expense.date
+            )
+
+            let yearMatch =
+                expenseYear == selectedYear
+
+            return categoryMatch &&
+                   monthMatch &&
+                   yearMatch
         }
     }
 

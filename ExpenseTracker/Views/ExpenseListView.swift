@@ -15,11 +15,58 @@ struct ExpenseListView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
+
                 ScrollView(.horizontal, showsIndicators: false) {
 
                     HStack(spacing: 12) {
+                        Menu {
+                            Button("All Months") {
+                                viewModel.selectedMonth = nil
+                            }
+                            Divider()
+                            ForEach(ExpenseMonth.allCases) { month in
+                                Button(month.title) {
+                                    viewModel.selectedMonth = month.rawValue
+                                }
+                            }
+                        } label: {
 
+                            FilterPill(
+                                icon: "calendar",
+                                title:
+                                    viewModel.selectedMonth == nil
+                                    ? "All Months"
+                                    : Calendar.current.monthSymbols[
+                                        viewModel.selectedMonth! - 1
+                                    ]
+                            )
+                        }
+
+                        // Year Menu
+                        Menu {
+                            ForEach(
+                                viewModel.availableYears,
+                                id: \.self
+                            ) { year in
+
+                                Button(String(year)) {
+                                    viewModel.selectedYear = year
+                                }
+                            }
+
+                        } label: {
+                            FilterPill(
+                                icon: "calendar.badge.clock",
+                                title: String(viewModel.selectedYear)
+                            )
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
                         CategoryFilterView(
                             category: nil,
                             isSelected: viewModel.selectedCategory == nil
@@ -39,11 +86,33 @@ struct ExpenseListView: View {
                     }
                     .padding(.horizontal)
                 }
-
+                
                 SummaryCardView(
                     total: viewModel.filteredTotalExpense
                 )
                 .padding(.horizontal)
+                
+                HStack {
+                    Text(
+                        viewModel.selectedMonth == nil
+                        ? "All Months"
+                        : Calendar.current.monthSymbols[
+                            viewModel.selectedMonth! - 1
+                        ]
+                    )
+
+                    Text(String(viewModel.selectedYear))
+
+                    Text("•")
+
+                    Text(
+                        viewModel.selectedCategory?.title
+                        ?? "All Categories"
+                    )
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
+                
                 List {
                     ForEach(viewModel.filteredExpenses) { expense in
                         ExpenseRowView(
@@ -72,7 +141,7 @@ struct ExpenseListView: View {
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Expenses")
+            .navigationTitle("Expense Manager")
             .toolbar {
                 ToolbarItem(
                     placement: .topBarTrailing
