@@ -13,6 +13,7 @@ import Combine
 final class ExpenseViewModel: ObservableObject {
 
     @Published var expenses: [Expense] = []
+    @Published var selectedCategory: ExpenseCategory? = nil
     private let repository: ExpenseRepository
 
     init(
@@ -25,6 +26,15 @@ final class ExpenseViewModel: ObservableObject {
     var totalExpense: Double {
         expenses.reduce(0) {
             $0 + $1.amount
+        }
+    }
+    
+    var filteredExpenses: [Expense] {
+        guard let selectedCategory else {
+            return expenses
+        }
+        return expenses.filter {
+            $0.category == selectedCategory
         }
     }
 

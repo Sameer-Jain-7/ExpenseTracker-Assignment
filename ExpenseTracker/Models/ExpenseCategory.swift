@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExpenseCategory: String, Codable, CaseIterable {
+enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
 
     case food
     case travel
@@ -15,6 +15,10 @@ enum ExpenseCategory: String, Codable, CaseIterable {
     case bills
     case entertainment
     case others
+
+    var id: String {
+        rawValue
+    }
 
     var title: String {
         rawValue.capitalized
