@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
 
@@ -44,6 +45,30 @@ enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
 
         case .others:
             return "square.grid.2x2"
+        }
+    }
+    
+    var color: Color {
+
+        switch self {
+
+        case .food:
+            return .orange
+
+        case .travel:
+            return .blue
+
+        case .shopping:
+            return .purple
+
+        case .bills:
+            return .red
+
+        case .entertainment:
+            return .pink
+
+        case .others:
+            return .gray
         }
     }
 }
