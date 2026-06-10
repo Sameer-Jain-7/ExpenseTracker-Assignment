@@ -18,19 +18,15 @@ struct ExpenseListView: View {
         
         NavigationStack {
             ScrollView(.horizontal, showsIndicators: false) {
-
                 HStack(spacing: 12) {
-
                     CategoryFilterView(
                         category: nil,
                         isSelected: viewModel.selectedCategory == nil
                     ) {
-
                         viewModel.selectedCategory = nil
                     }
 
                     ForEach(ExpenseCategory.allCases) { category in
-
                         CategoryFilterView(
                             category: category,
                             isSelected: viewModel.selectedCategory == category
@@ -43,15 +39,11 @@ struct ExpenseListView: View {
                 .padding(.horizontal)
             }
             ScrollView {
-
                 VStack(spacing: 16) {
-
                     SummaryCardView(
                         total: viewModel.totalExpense
                     )
-
                     LazyVStack(spacing: 12) {
-
                         ForEach(viewModel.filteredExpenses) {
                             ExpenseRowView(expense: $0)
                         }

@@ -23,4 +23,27 @@ enum ExpenseCategory: String, Codable, CaseIterable, Identifiable {
     var title: String {
         rawValue.capitalized
     }
+    
+    var icon: String {
+        
+        switch self {
+        case .food:
+            return "fork.knife"
+
+        case .travel:
+            return "car"
+
+        case .shopping:
+            return "bag"
+
+        case .bills:
+            return "doc.text"
+
+        case .entertainment:
+            return "tv"
+
+        case .others:
+            return "square.grid.2x2"
+        }
+    }
 }
