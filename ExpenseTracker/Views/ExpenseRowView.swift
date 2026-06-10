@@ -50,7 +50,7 @@ struct ExpenseRowView: View {
                         .font(.caption2)
 
                     Text(formattedDate)
-                        .font(.caption)
+                        .font(.caption2)
                 }
                 .foregroundColor(.secondary)
             }

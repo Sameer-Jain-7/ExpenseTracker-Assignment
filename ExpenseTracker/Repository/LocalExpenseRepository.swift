@@ -18,6 +18,16 @@ final class LocalExpenseRepository: ExpenseRepository {
         expenses.append(expense)
         manager.saveExpenses(expenses)
     }
+    
+    func update(expense: Expense) {
+        var expenses = manager.getExpenses()
+        if let index = expenses.firstIndex(where: {
+            $0.id == expense.id
+        }) {
+            expenses[index] = expense
+        }
+        manager.saveExpenses(expenses)
+    }
 
     func delete(expense: Expense) {
         var expenses = manager.getExpenses()

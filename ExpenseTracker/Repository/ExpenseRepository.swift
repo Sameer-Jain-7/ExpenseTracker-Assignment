@@ -9,5 +9,6 @@ protocol ExpenseRepository {
     
     func fetchExpenses() -> [Expense]
     func save(expense: Expense)
+    func update(expense: Expense)
     func delete(expense: Expense)
 }

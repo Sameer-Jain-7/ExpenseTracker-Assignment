@@ -9,11 +9,9 @@ import SwiftUI
 
 struct ExpenseListView: View {
 
-    @StateObject
-    private var viewModel = ExpenseViewModel()
-
-    @State
-    private var showAddScreen = false
+    @StateObject private var viewModel = ExpenseViewModel()
+    @State private var selectedExpense: Expense?
+    @State private var showAddScreen = false
 
     var body: some View {
         NavigationStack {
@@ -51,7 +49,16 @@ struct ExpenseListView: View {
                         ExpenseRowView(
                             expense: expense
                         )
-                        .swipeActions(edge: .trailing) {
+                        .swipeActions {
+                            Button {
+                                selectedExpense = expense
+                            } label: {
+                                Label(
+                                    "Edit",
+                                    systemImage: "pencil"
+                                )
+                            }
+                            .tint(.blue)
                             Button(role: .destructive) {
                                 viewModel.deleteExpense(expense)
                             } label: {
@@ -81,6 +88,14 @@ struct ExpenseListView: View {
                 NavigationStack {
                     AddExpenseView(
                         viewModel: viewModel
+                    )
+                }
+            }
+            .sheet(item: $selectedExpense) { expense in
+                NavigationStack {
+                    AddExpenseView(
+                        viewModel: viewModel,
+                        expenseToEdit: expense
                     )
                 }
             }
