@@ -42,7 +42,7 @@ struct ExpenseRowView: View {
 
                 Text(expense.category.title)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(AppColors.accent)
 
                 HStack(spacing: 4) {
 
@@ -64,13 +64,16 @@ struct ExpenseRowView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.red)
 
-                Text("Expense")
+                Text("Paid")
                     .font(.caption2)
                     .foregroundColor(.secondary)
             }
         }
         .padding()
-        .background(.white)
+        .background(
+            RoundedRectangle(cornerRadius: 24)
+                .fill(.background)
+        )
         .clipShape(
             RoundedRectangle(
                 cornerRadius: 20,
@@ -78,10 +81,9 @@ struct ExpenseRowView: View {
             )
         )
         .shadow(
-            color: .black.opacity(0.05),
-            radius: 8,
-            x: 0,
-            y: 4
+            color: .black.opacity(0.06),
+            radius: 12,
+            y: 6
         )
     }
 }

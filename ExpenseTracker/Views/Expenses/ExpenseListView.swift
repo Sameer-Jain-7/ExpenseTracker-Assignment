@@ -15,7 +15,7 @@ struct ExpenseListView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 12) {
+            VStack(spacing: 8) {
 
                 ScrollView(.horizontal, showsIndicators: false) {
 
@@ -87,9 +87,27 @@ struct ExpenseListView: View {
                     .padding(.horizontal)
                 }
                 
-                SummaryCardView(
-                    total: viewModel.filteredTotalExpense
-                )
+                HStack(alignment: .top, spacing: 12) {
+
+                    SummaryCardView(
+                        total: viewModel.filteredTotalExpense
+                    )
+                    .frame(maxWidth: .infinity)
+
+                    VStack(spacing: 10) {
+
+                        StatCard(
+                            title: "Transactions",
+                            value: "\(viewModel.filteredExpenses.count)"
+                        )
+
+                        StatCard(
+                            title: "Categories",
+                            value: "\(Set(viewModel.filteredExpenses.map(\.category)).count)"
+                        )
+                    }
+                    .frame(width: 120)
+                }
                 .padding(.horizontal)
                 
                 HStack {
@@ -113,6 +131,16 @@ struct ExpenseListView: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
                 
+                if viewModel.filteredExpenses.isEmpty {
+                    ContentUnavailableView(
+                        "No Expenses Found",
+                        systemImage: "tray",
+                        description: Text(
+                            "Try changing your filters or add a new expense."
+                        )
+                    )
+                }
+                
                 List {
                     ForEach(viewModel.filteredExpenses) { expense in
                         ExpenseRowView(
@@ -127,7 +155,6 @@ struct ExpenseListView: View {
                                     systemImage: "pencil"
                                 )
                             }
-                            .tint(.blue)
                             Button(role: .destructive) {
                                 viewModel.deleteExpense(expense)
                             } label: {
@@ -136,12 +163,14 @@ struct ExpenseListView: View {
                                     systemImage: "trash"
                                 )
                             }
+                            .tint(.red)
                         }
                     }
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Expense Manager")
+            .navigationTitle("My Expenses")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(
                     placement: .topBarTrailing
@@ -168,6 +197,16 @@ struct ExpenseListView: View {
                     )
                 }
             }
+            .background(
+                LinearGradient(
+                    colors: [
+                        AppColors.primary.opacity(0.03),
+                        Color(.systemGroupedBackground)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
         }
     }
 }
