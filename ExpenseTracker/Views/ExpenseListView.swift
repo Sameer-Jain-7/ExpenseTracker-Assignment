@@ -11,50 +11,62 @@ struct ExpenseListView: View {
 
     @StateObject
     private var viewModel = ExpenseViewModel()
+
     @State
     private var showAddScreen = false
 
     var body: some View {
-        
         NavigationStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    CategoryFilterView(
-                        category: nil,
-                        isSelected: viewModel.selectedCategory == nil
-                    ) {
-                        viewModel.selectedCategory = nil
-                    }
+            VStack(spacing: 16) {
+                ScrollView(.horizontal, showsIndicators: false) {
 
-                    ForEach(ExpenseCategory.allCases) { category in
+                    HStack(spacing: 12) {
+
                         CategoryFilterView(
-                            category: category,
-                            isSelected: viewModel.selectedCategory == category
+                            category: nil,
+                            isSelected: viewModel.selectedCategory == nil
                         ) {
+                            viewModel.selectedCategory = nil
+                        }
 
-                            viewModel.selectedCategory = category
+                        ForEach(ExpenseCategory.allCases) { category in
+
+                            CategoryFilterView(
+                                category: category,
+                                isSelected: viewModel.selectedCategory == category
+                            ) {
+                                viewModel.selectedCategory = category
+                            }
                         }
                     }
+                    .padding(.horizontal)
                 }
+
+                SummaryCardView(
+                    total: viewModel.filteredTotalExpense
+                )
                 .padding(.horizontal)
-            }
-            ScrollView {
-                VStack(spacing: 16) {
-                    SummaryCardView(
-                        total: viewModel.totalExpense
-                    )
-                    LazyVStack(spacing: 12) {
-                        ForEach(viewModel.filteredExpenses) {
-                            ExpenseRowView(expense: $0)
+                List {
+                    ForEach(viewModel.filteredExpenses) { expense in
+                        ExpenseRowView(
+                            expense: expense
+                        )
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                viewModel.deleteExpense(expense)
+                            } label: {
+                                Label(
+                                    "Delete",
+                                    systemImage: "trash"
+                                )
+                            }
                         }
                     }
                 }
-                .padding()
+                .listStyle(.plain)
             }
-            .padding()
             .navigationTitle("Expenses")
             .toolbar {
-
                 ToolbarItem(
                     placement: .topBarTrailing
                 ) {
@@ -65,9 +77,7 @@ struct ExpenseListView: View {
                     }
                 }
             }
-            .sheet(
-                isPresented: $showAddScreen
-            ) {
+            .sheet(isPresented: $showAddScreen) {
                 NavigationStack {
                     AddExpenseView(
                         viewModel: viewModel

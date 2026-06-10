@@ -29,6 +29,12 @@ final class ExpenseViewModel: ObservableObject {
         }
     }
     
+    var filteredTotalExpense: Double {
+        filteredExpenses.reduce(0) {
+            $0 + $1.amount
+        }
+    }
+    
     var filteredExpenses: [Expense] {
         guard let selectedCategory else {
             return expenses
@@ -57,12 +63,20 @@ final class ExpenseViewModel: ObservableObject {
     }
 
     func deleteExpense(at offsets: IndexSet) {
-        offsets.forEach {
-            repository.delete(
-                expense: expenses[$0]
-            )
+
+        let itemsToDelete = offsets.map {
+            filteredExpenses[$0]
         }
 
+        itemsToDelete.forEach {
+            repository.delete(expense: $0)
+        }
+
+        loadExpenses()
+    }
+    
+    func deleteExpense(_ expense: Expense) {
+        repository.delete(expense: expense)
         loadExpenses()
     }
 }
