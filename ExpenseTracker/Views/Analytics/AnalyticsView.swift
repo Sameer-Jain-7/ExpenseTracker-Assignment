@@ -17,14 +17,12 @@ struct AnalyticsView: View {
                 VStack(spacing: 16) {
                     AnalyticsCard(
                         title: "Total Expenses",
-                        value:
-                            "₹\(viewModel.totalExpense, default: "%.2f")"
+                        value: "₹\(viewModel.totalExpense.formatted(.number.precision(.fractionLength(2))))"
                     )
 
                     AnalyticsCard(
                         title: "Average Expense",
-                        value:
-                            "₹\(viewModel.averageExpense, default: "%.2f")"
+                        value: "₹\(viewModel.averageExpense.formatted(.number.precision(.fractionLength(2))))"
                     )
 
                     AnalyticsCard(
