@@ -21,40 +21,62 @@ struct AddExpenseView: View {
 
     var body: some View {
         Form {
-            TextField(
-                "Title",
-                text: $title
-            )
-            
-            TextField(
-                "Amount",
-                text: $amount
-            )
-            .keyboardType(.decimalPad)
 
-            Picker(
-                "Category",
-                selection: $category
-            ) {
-                ForEach(
-                    ExpenseCategory.allCases,
-                    id: \.self
+            Section("Expense Details") {
+
+                TextField(
+                    "Enter Expense Title",
+                    text: $title
+                )
+
+                TextField(
+                    "Enter Amount",
+                    text: $amount
+                )
+                .keyboardType(.decimalPad)
+            }
+
+            Section("Category") {
+
+                Picker(
+                    "Category",
+                    selection: $category
                 ) {
-                    Text($0.title)
+
+                    ForEach(
+                        ExpenseCategory.allCases,
+                        id: \.self
+                    ) { category in
+
+                        Label(
+                            category.title,
+                            systemImage: category.icon
+                        )
+                        .tag(category)
+                    }
                 }
             }
 
-            Button("Save") {
+            Button {
+
                 guard let value = Double(amount)
-                else {
-                    return
-                }
+                else { return }
+
                 viewModel.addExpense(
                     title: title,
                     amount: value,
                     category: category
                 )
+
                 dismiss()
+
+            } label: {
+
+                Label(
+                    "Save Expense",
+                    systemImage: "plus.circle.fill"
+                )
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationTitle("Add Expense")

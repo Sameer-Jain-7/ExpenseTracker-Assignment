@@ -15,22 +15,26 @@ struct CategoryFilterView: View {
 
     var body: some View {
         Button(action: onTap) {
-            Text(category?.title ?? "All")
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(
-                    isSelected
-                    ? AppColors.primary
-                    : Color(.systemGray6)
-                )
-                .foregroundColor(
-                    isSelected
-                    ? .white
-                    : .primary
-                )
-                .clipShape(Capsule())
+
+            Label(
+                category?.title ?? "All",
+                systemImage: category?.icon ?? "line.3.horizontal.decrease.circle"
+            )
+            .font(.subheadline)
+            .fontWeight(.medium)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .background(
+                isSelected
+                ? AppColors.primary
+                : Color(.systemGray6)
+            )
+            .foregroundColor(
+                isSelected
+                ? .white
+                : .primary
+            )
+            .clipShape(Capsule())
         }
     }
 }
