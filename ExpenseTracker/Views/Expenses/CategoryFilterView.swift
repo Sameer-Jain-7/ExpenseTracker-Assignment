@@ -22,8 +22,8 @@ struct CategoryFilterView: View {
             )
             .font(.subheadline)
             .fontWeight(.medium)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 10)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
             .background(
                 isSelected
                 ? AppColors.primary
@@ -35,6 +35,14 @@ struct CategoryFilterView: View {
                 : .primary
             )
             .clipShape(Capsule())
+            .shadow(
+                color: isSelected
+                ? AppColors.primary.opacity(0.2)
+                : .clear,
+                radius: 8
+            )
+            .scaleEffect(isSelected ? 1.03 : 1)
+            .animation(.easeInOut(duration: 0.2), value: isSelected)
         }
     }
 }

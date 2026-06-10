@@ -32,9 +32,9 @@ final class ExpenseViewModel: ObservableObject {
     }
 
     init(
-        repository: ExpenseRepository = LocalExpenseRepository()
+        repository: ExpenseRepository? = nil
     ) {
-        self.repository = repository
+        self.repository = repository ?? LocalExpenseRepository()
         loadExpenses()
     }
 

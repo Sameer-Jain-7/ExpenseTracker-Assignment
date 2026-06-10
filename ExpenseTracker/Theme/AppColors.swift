@@ -8,22 +8,8 @@
 import SwiftUI
 
 enum AppColors {
-
-    static let primary = Color(
-        red: 37/255,
-        green: 99/255,
-        blue: 235/255
-    )
-
-    static let secondary = Color(
-        red: 79/255,
-        green: 70/255,
-        blue: 229/255
-    )
-
-    static let background = Color(
-        red: 248/255,
-        green: 250/255,
-        blue: 252/255
-    )
+    static let primary = Color(red: 0.09, green: 0.17, blue: 0.32)   // Navy
+    static let accent = Color(red: 0.16, green: 0.65, blue: 0.48)    // Emerald
+    static let cardBackground = Color(.systemBackground)
+    static let screenBackground = Color(.systemGroupedBackground)
 }
