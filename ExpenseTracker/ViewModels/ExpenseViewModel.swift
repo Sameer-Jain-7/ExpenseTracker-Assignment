@@ -66,17 +66,33 @@ final class ExpenseViewModel: ObservableObject {
         repository.save(expense: expense)
         loadExpenses()
     }
+    
+    func updateExpense(
+        id: UUID,
+        title: String,
+        amount: Double,
+        category: ExpenseCategory,
+        date: Date
+    ) {
+        let expense = Expense(
+            id: id,
+            title: title,
+            amount: amount,
+            category: category,
+            date: date
+        )
+        repository.update(expense: expense)
+        loadExpenses()
+    }
 
     func deleteExpense(at offsets: IndexSet) {
 
         let itemsToDelete = offsets.map {
             filteredExpenses[$0]
         }
-
         itemsToDelete.forEach {
             repository.delete(expense: $0)
         }
-
         loadExpenses()
     }
     
