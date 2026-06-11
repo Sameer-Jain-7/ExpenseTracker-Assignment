@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A9072C662FDA7D56004615AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9072C652FDA7D53004615AD /* README.md */; };
-		A9072C6A2FDA7D7D004615AD /* ARCHITECTURE.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */; };
-		A9072C6C2FDA7DA4004615AD /* AI_LOG.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C6B2FDA7D99004615AD /* AI_LOG.md */; };
-		A9072C6E2FDA7DB1004615AD /* REVIEW_LOG.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C6D2FDA7DAF004615AD /* REVIEW_LOG.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +27,7 @@
 		A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCHITECTURE.md; sourceTree = "<group>"; };
 		A9072C6B2FDA7D99004615AD /* AI_LOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_LOG.md; sourceTree = "<group>"; };
 		A9072C6D2FDA7DAF004615AD /* REVIEW_LOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REVIEW_LOG.md; sourceTree = "<group>"; };
+		A9072D892FDA9D2B004615AD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -66,6 +64,7 @@
 		A907299B2FD9C1C6004615AD = {
 			isa = PBXGroup;
 			children = (
+				A9072D892FDA9D2B004615AD /* .gitignore */,
 				A9072C652FDA7D53004615AD /* README.md */,
 				A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */,
 				A9072C6B2FDA7D99004615AD /* AI_LOG.md */,
@@ -195,9 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9072C6E2FDA7DB1004615AD /* REVIEW_LOG.md in Sources */,
-				A9072C6C2FDA7DA4004615AD /* AI_LOG.md in Sources */,
-				A9072C6A2FDA7D7D004615AD /* ARCHITECTURE.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
