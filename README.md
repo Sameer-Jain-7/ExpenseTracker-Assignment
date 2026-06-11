@@ -71,6 +71,20 @@ ExpenseTracker/
 3. Select an iOS Simulator
 4. Build and Run
 
+## Screenshots
+
+### Expense Dashboard
+
+<img width="200" alt="Expense Dashboard" src="https://github.com/user-attachments/assets/73cec8b7-d4b5-47ed-99e2-ca0af00cf730" />
+
+### Add Expense
+
+<img width="200" alt="Add Expense" src="https://github.com/user-attachments/assets/9e3d4dac-9e9e-451f-a875-5238d9b5402a" />
+
+### Analytics
+
+<img width="200" alt="Analytics" src="https://github.com/user-attachments/assets/da773822-88c5-4b3e-8bac-a7b083f15536" />
+
 ## Testing
 
 The project includes unit tests covering:
