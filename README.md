@@ -66,10 +66,28 @@ ExpenseTracker/
 
 ## Running the Application
 
+### Prerequisites
+
+- macOS
+- Xcode 16 or later
+- iOS 18 Simulator (or compatible version)
+
+### Setup
+
 1. Clone the repository
+
+   git clone https://github.com/Sameer-Jain-7/ExpenseTracker-Assignment.git
+
 2. Open `ExpenseTracker.xcodeproj`
-3. Select an iOS Simulator
-4. Build and Run
+
+3. Select an iPhone Simulator
+
+4. Build and Run (`⌘ + R`)
+
+### Running Tests
+
+1. Open the project in Xcode
+2. Press `⌘ + U` to run all unit tests
 
 ## Screenshots
 
