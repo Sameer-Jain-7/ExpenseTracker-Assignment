@@ -1,0 +1,28 @@
+# Xcode
+DerivedData/
+.build/
+
+# User-specific Xcode settings
+*.xcuserstate
+xcuserdata/
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# macOS
+.DS_Store
+
+# Xcode archives
+*.xcarchive
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# Temporary files
+*.swp
+*.lock
+
+# XCTest results
+*.xcresult
