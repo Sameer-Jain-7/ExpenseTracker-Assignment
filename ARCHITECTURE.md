@@ -63,7 +63,7 @@ Examples:
 - UserDefaultsManager
 
 ## Data Flow
-
+```text
 User Action
 ↓
 View
@@ -73,6 +73,7 @@ ViewModel
 Repository
 ↓
 Persistence Layer
+```
 
 The ViewModel updates published state, which automatically refreshes SwiftUI views.
 
