@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A9072C662FDA7D56004615AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9072C652FDA7D53004615AD /* README.md */; };
+		A9072C6A2FDA7D7D004615AD /* ARCHITECTURE.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */; };
+		A9072C6C2FDA7DA4004615AD /* AI_LOG.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C6B2FDA7D99004615AD /* AI_LOG.md */; };
+		A9072C6E2FDA7DB1004615AD /* REVIEW_LOG.md in Sources */ = {isa = PBXBuildFile; fileRef = A9072C6D2FDA7DAF004615AD /* REVIEW_LOG.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A9072B2E2FDA2488004615AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -19,6 +26,10 @@
 /* Begin PBXFileReference section */
 		A90729A42FD9C1C6004615AD /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9072B2A2FDA2488004615AD /* ExpenseTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenseTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9072C652FDA7D53004615AD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCHITECTURE.md; sourceTree = "<group>"; };
+		A9072C6B2FDA7D99004615AD /* AI_LOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_LOG.md; sourceTree = "<group>"; };
+		A9072C6D2FDA7DAF004615AD /* REVIEW_LOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REVIEW_LOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +66,10 @@
 		A907299B2FD9C1C6004615AD = {
 			isa = PBXGroup;
 			children = (
+				A9072C652FDA7D53004615AD /* README.md */,
+				A9072C692FDA7D7B004615AD /* ARCHITECTURE.md */,
+				A9072C6B2FDA7D99004615AD /* AI_LOG.md */,
+				A9072C6D2FDA7DAF004615AD /* REVIEW_LOG.md */,
 				A90729A62FD9C1C6004615AD /* ExpenseTracker */,
 				A9072B2B2FDA2488004615AD /* ExpenseTrackerTests */,
 				A90729A52FD9C1C6004615AD /* Products */,
@@ -162,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9072C662FDA7D56004615AD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +195,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9072C6E2FDA7DB1004615AD /* REVIEW_LOG.md in Sources */,
+				A9072C6C2FDA7DA4004615AD /* AI_LOG.md in Sources */,
+				A9072C6A2FDA7D7D004615AD /* ARCHITECTURE.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
